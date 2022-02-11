@@ -1,13 +1,6 @@
 import React from 'react'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Platform,
-} from 'react-native'
+import { StatusBar, StyleSheet, Text, View, SafeAreaView } from 'react-native'
 
 export default function App() {
   return (
