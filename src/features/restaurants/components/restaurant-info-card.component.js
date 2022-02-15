@@ -3,14 +3,13 @@ import styled from 'styled-components/native'
 import { StyleSheet, Text, Image, View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
 import { Card } from 'react-native-paper'
-import { Spacer } from '../../../components/spacer.component'
+import { Spacer } from '../../../components/spacer/spacer.component'
 import star from '../../../../assets/star'
 import open from '../../../../assets/open'
 
 const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary}; ;
 `
-
 const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props) => props.theme.space[3]};
   background-color: ${(props) => props.theme.colors.bg.primary};
@@ -42,6 +41,15 @@ const SectionEnd = styled.View`
   justify-content: flex-end;
 `
 
+const CategoryIcon = styled.Image`
+  height: ${(props) => props.theme.space[3]};
+  width: ${(props) => props.theme.space[3]};
+`
+const ClosedText = styled.Text`
+  color: ${(props) => props.theme.colors.text.error};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+`
+
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = 'Some Restaurant',
@@ -54,7 +62,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     rating = 4,
     isClosedTemporarily = true,
   } = restaurant
+
   const ratingArray = Array.from(new Array(Math.floor(rating)))
+
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover
@@ -72,15 +82,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           </Rating>
           <SectionEnd>
             {isClosedTemporarily && (
-              <Text variant="label" style={{ color: 'red' }}>
-                CLOSED TEMPORARILY
-              </Text>
+              <ClosedText variant="label">CLOSED TEMPORARILY</ClosedText>
             )}
             <Spacer position="left" size="large">
               {isOpen && <SvgXml xml={open} width={20} height={20} />}
             </Spacer>
             <Spacer position="left" size="large">
-              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+              <CategoryIcon source={{ uri: icon }} />
             </Spacer>
           </SectionEnd>
         </Section>
