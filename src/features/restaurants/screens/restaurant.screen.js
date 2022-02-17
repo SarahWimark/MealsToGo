@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components/native";
 import { Colors } from "react-native-paper";
-import { FlatList, Pressable } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import {
   SafeArea,
@@ -21,8 +21,6 @@ const RestaurantList = styled(FlatList).attrs({
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
 
-  const onPress = () => navigation.navigate("RestaurantDetail");
-
   return (
     <SafeArea>
       {isLoading && (
@@ -34,11 +32,16 @@ export const RestaurantsScreen = ({ navigation }) => {
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => (
-          <Pressable onPress={onPress}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("RestaurantDetail", {
+                restaurant: item,
+              })
+            }>
             <Spacer position="bottom" size="large">
               <RestaurantInfoCard restaurant={item} />
             </Spacer>
-          </Pressable>
+          </TouchableOpacity>
         )}
         keyExtractor={(item) => item.name}
       />
