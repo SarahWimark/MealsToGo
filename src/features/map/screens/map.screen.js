@@ -28,7 +28,21 @@ export const MapScreen = () => {
   return (
     <>
       <Search />
-      <Map region={regionOptions}></Map>
+      <Map region={regionOptions}>
+        {restaurants.map((restaurant) => {
+          return (
+            <MapView.Marker
+              key={restaurant.name}
+              title={restaurant.name}
+              coordinate={{
+                latitude: restaurant.geometry.location.lat,
+                longitude: restaurant.geometry.location.lng,
+              }}>
+              <MapView.Callout></MapView.Callout>
+            </MapView.Marker>
+          );
+        })}
+      </Map>
     </>
   );
 };
