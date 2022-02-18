@@ -6,7 +6,7 @@ import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import MapView from "react-native-maps";
 
-export const MapScreen = () => {
+export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
   const [latDelta, setLatDelta] = useState(0);
@@ -38,7 +38,10 @@ export const MapScreen = () => {
                 latitude: restaurant.geometry.location.lat,
                 longitude: restaurant.geometry.location.lng,
               }}>
-              <MapView.Callout>
+              <MapView.Callout
+                onPress={() => {
+                  navigation.navigate("RestaurantDetail", { restaurant });
+                }}>
                 <MapCallout restaurant={restaurant} />
               </MapView.Callout>
             </MapView.Marker>
