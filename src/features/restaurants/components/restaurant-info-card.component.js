@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components/native";
 import { StyleSheet } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -15,7 +14,7 @@ import {
   SectionEnd,
   CategoryIcon,
   Address,
-} from "./restaurant.info.card.styles";
+} from "./restaurant-info-card.styles.js";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
