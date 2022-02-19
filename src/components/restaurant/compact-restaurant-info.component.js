@@ -10,7 +10,7 @@ import { Text } from "../typography/text.component";
 
 const isAndroid = Platform.OS === "android";
 
-export const CompactRestarauntInfo = ({ restaurant }) => {
+export const CompactRestaurantInfo = ({ restaurant }) => {
   const Image = isAndroid ? CompactWebView : CompactImage;
   return (
     <Item>

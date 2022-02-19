@@ -15,10 +15,7 @@ export const Favourite = ({ restaurant }) => {
   };
 
   return (
-    <FavouriteButton
-      onPress={() =>
-        !isFavourite ? addFavourite(restaurant) : removeFavourite(restaurant)
-      }>
+    <FavouriteButton onPress={onPress}>
       <AntDesign
         name={isFavourite ? "heart" : "hearto"}
         size={24}
