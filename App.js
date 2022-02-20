@@ -39,7 +39,6 @@ export default function App() {
     setTimeout(() => {
       signInWithEmailAndPassword(auth, "test@test.com", "password")
         .then((user) => {
-          console.log(user);
           setIsAuthenticated(true);
         })
         .catch((e) => {
