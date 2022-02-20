@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components/native";
 
 import {
@@ -12,8 +12,42 @@ import { FavouritesContextProvider } from "./src/services/favourites/favourites.
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCX_fMsIpvsy3CeJLyANSfP8V1jWl914i8",
+  authDomain: "mealstogo-1157f.firebaseapp.com",
+  projectId: "mealstogo-1157f",
+  storageBucket: "mealstogo-1157f.appspot.com",
+  messagingSenderId: "2597669940",
+  appId: "1:2597669940:web:dff0bf721b3da9f2084e61",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      signInWithEmailAndPassword(auth, "test@test.com", "password")
+        .then((user) => {
+          console.log(user);
+          setIsAuthenticated(true);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }, 5000);
+  }, []);
+
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
