@@ -10,14 +10,20 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   const onLogin = (email, password) => {
     setIsLoading(true);
-    loginRequest(email, password).then((u) => {
-      setUser(u);
-      setIsLoading(false);
-    });
+    loginRequest(email, password)
+      .then((u) => {
+        setUser(u);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setIsLoading(false);
+        setError(e.toString());
+      });
   };
 
   return (
-    <AuthenticationContext.Provider value={{ user, isLoading, error, onLogin }}>
+    <AuthenticationContext.Provider
+      value={{ isAuthenticated: !!user, user, isLoading, error, onLogin }}>
       {children}
     </AuthenticationContext.Provider>
   );
