@@ -13,12 +13,13 @@ import { AuthenticationContextProvider } from "./src/services/authentication/aut
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
-import { initializeApp } from "firebase/app";
-import {
+//import { initializeApp } from "firebase/app";
+import * as firebase from "firebase";
+/* import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-} from "firebase/auth";
+} from "firebase/auth"; */
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -30,11 +31,14 @@ const firebaseConfig = {
   appId: "1:2597669940:web:dff0bf721b3da9f2084e61",
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+/* const app = initializeApp(firebaseConfig);
+const auth = getAuth(app); */
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  /* const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,7 +51,7 @@ export default function App() {
         });
     }, 5000);
   }, []);
-
+ */
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });

@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import * as firebase from "firebase";
 
 export const loginRequest = (email, password) =>
-  signInWithEmailAndPassword(getAuth(), email, password);
+  firebase.auth().signInWithEmailAndPassword(email, password);
