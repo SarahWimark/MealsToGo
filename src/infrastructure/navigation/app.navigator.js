@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text, Button } from "react-native";
-import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
-import { LocationContextProvider } from "../../services/location/location.context";
-import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 import { SafeArea } from "../../features/restaurants/screens/restaurant.screen.styles";
 import { MapScreen } from "../../features/map/screens/map.screen";
 
