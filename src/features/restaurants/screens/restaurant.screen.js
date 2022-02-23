@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components/native";
+//import styled from "styled-components/native";
 import { Colors } from "react-native-paper";
 import { FlatList, TouchableOpacity } from "react-native";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -9,16 +9,17 @@ import {
   LoadingContainer,
 } from "./restaurant.screen.styles";
 import { Search } from "../components/search.component";
+import { RestaurantList } from "../components/restaurant-list.styles.js";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
-const RestaurantList = styled(FlatList).attrs({
+/* const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
   },
-})``;
+})``; */
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
