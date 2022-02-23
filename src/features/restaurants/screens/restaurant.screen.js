@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 //import styled from "styled-components/native";
 import { Colors } from "react-native-paper";
-import { FlatList, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
+import { FadeInView } from "../../../components/animations/fade.animation";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import {
   SafeArea,
@@ -54,7 +55,9 @@ export const RestaurantsScreen = ({ navigation }) => {
               })
             }>
             <Spacer position="bottom" size="large">
-              <RestaurantInfoCard restaurant={item} />
+              <FadeInView>
+                <RestaurantInfoCard restaurant={item} />
+              </FadeInView>
             </Spacer>
           </TouchableOpacity>
         )}
