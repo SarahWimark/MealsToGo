@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-//import styled from "styled-components/native";
 import { Colors } from "react-native-paper";
 import { TouchableOpacity } from "react-native";
 import { FadeInView } from "../../../components/animations/fade.animation";
@@ -15,12 +14,6 @@ import { FavouritesBar } from "../../../components/favourites/favourites-bar.com
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
-
-/* const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``; */
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
