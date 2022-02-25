@@ -5,7 +5,7 @@ const { Client } = require("@googlemaps/google-maps-services-js");
 
 const client = new Client({});
 
-exports.geocode = functions.https.onRequest((request, response) => {
+exports.geocode = functions.https.onRequest((request, response, client) => {
   geocodeRequest(request, response, client);
 });
 
