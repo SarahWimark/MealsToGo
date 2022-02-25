@@ -2,7 +2,7 @@ import camelize from "camelize";
 
 export const restaurantsRequest = (location) => {
   return fetch(
-    `http://localhost:5000/mealstogo-1157f/us-central1/placesNearby?location=${location}`
+    `https://us-central1-mealstogo-1157f.cloudfunctions.net/placesNearby?location=${location}`
   ).then((res) => res.json());
 };
 
