@@ -21,6 +21,7 @@ export const LocationContextProvider = ({ children }) => {
     locationRequest(keyword.toLowerCase())
       .then(locationDataTransform)
       .then((result) => {
+        setError(null);
         setIsLoading(false);
         setLocation(result);
       })
